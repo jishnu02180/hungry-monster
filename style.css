@@ -1,0 +1,25 @@
+#food-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.meal-item{
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.meal-item img {
+    width: 200px;
+}
+
+.meal-details img{
+    width: 200px;
+}
+
+#item-details {
+    margin-top: 20px;
+}
