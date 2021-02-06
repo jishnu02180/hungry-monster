@@ -1,21 +1,28 @@
 const searchBtn = document.getElementById('search');
 searchBtn.addEventListener('click', function () {
     //window.location.reload();
+
     const mealItem = document.getElementById('meal').value;
     loadFoodData(mealItem);
+    //updateDiv();
 
 })
+
 
 const loadFoodData = foodName => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
     fetch(url)
         .then(res => res.json())
-        .then(data => displayMealItem(data.meals));
+        .then(data => displayMealItem(data.meals))
+        .catch(error => console.log(error))
 }
 
 const displayMealItem = mealItems => {
+
     //console.log(mealItems);
     const foodContainer = document.getElementById('food-container');
+    dataClear('food-container');
+    dataClear('item-details');
     mealItems.forEach(item => {
         const foodItemName = document.createElement('div');
         foodItemName.className = 'meal-item';
@@ -29,8 +36,8 @@ const displayMealItem = mealItems => {
             mealDetails(item.idMeal);
         });
         foodContainer.appendChild(foodItemName);
-
     });
+
 
 }
 
@@ -43,6 +50,7 @@ const mealDetails = id => {
 
 const displayDetails = mealItemDetails => {
     const itemDetails = document.getElementById('item-details');
+    dataClear('item-details');
     mealItemDetails.forEach(item => {
         const itemDetail = document.createElement('div');
         itemDetail.className = 'meal-details';
@@ -68,4 +76,9 @@ const displayDetails = mealItemDetails => {
 
     });
 
+}
+
+const dataClear = id => {
+    const itemDetails = document.getElementById(id);
+    itemDetails.innerHTML = "";
 }
