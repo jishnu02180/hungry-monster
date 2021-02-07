@@ -51,7 +51,6 @@ const loadMealDetailsData = id => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log('response',data);
             if(data.meals != null){
                 displayDetails(data.meals);
             }else{
@@ -69,7 +68,6 @@ const displayDetails = mealItemDetails => {
     mealItemDetails.forEach(item => {
         const itemDetail = document.createElement('div');
         itemDetail.className = 'meal-details';
-        console.log(item.strMeal);
         const itemName = document.createElement('h1');
         const ingredients = document.createElement('h4');
         ingredients.innerText = 'Ingredients';
