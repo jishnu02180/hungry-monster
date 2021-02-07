@@ -78,15 +78,18 @@ const displayDetails = mealItemDetails => {
         const imgUrl = document.createElement('img');
         imgUrl.src = item.strMealThumb;
         itemDetail.appendChild(imgUrl);
-        const li = `
-         <li>${item.strIngredient1}</li>
-         <li>${item.strIngredient2}</li>
-         <li>${item.strIngredient3}</li>
-         <li>${item.strIngredient4}</li>
-         <li>${item.strIngredient5}</li>
-         <li>${item.strIngredient6}</li>
-        `
-        ul.innerHTML = li;
+
+        const ingredientsItems = [item.strIngredient1,item.strIngredient2,item.strIngredient3,item.strIngredient4,
+            item.strIngredient5,item.strIngredient6,item.strIngredient7,item.strIngredient8,item.strIngredient9,item.strIngredient10,
+            item.strIngredient11,item.strIngredient12,item.strIngredient13,item.strIngredient14,item.strIngredient15,item.strIngredient16,
+            item.strIngredient17,item.strIngredient18,item.strIngredient19,item.strIngredient20];
+        ingredientsItems.forEach(item =>{
+            const li = document.createElement('li');
+            if(item != null && item != ''){
+                li.innerText = item;
+                ul.appendChild(li);
+            } 
+        })
         itemDetail.appendChild(itemName);
         itemDetail.appendChild(ingredients);
         itemDetail.appendChild(ul);
