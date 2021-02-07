@@ -18,7 +18,7 @@ const loadFoodData = foodName => {
                 alert('No data is available');
             }
         })
-        .catch(error => alert('Please check your Internet'))
+        .catch(error => alert('Something went wrong !! Please check your Internet'));
 }
 
 // Display meal item name and image
@@ -58,7 +58,7 @@ const loadMealDetailsData = id => {
                 alert('No data is available');
             }
         })
-        .catch(error => alert('Please check your Internet'))
+        .catch(error => alert('Something went wrong !! Please check your Internet'));
 }
 
 // Display meal details data after clicking on meal item
