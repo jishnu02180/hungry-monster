@@ -1,11 +1,7 @@
 const searchBtn = document.getElementById('search');
 searchBtn.addEventListener('click', function () {
-    //window.location.reload();
-
     const mealItem = document.getElementById('meal').value;
     loadFoodData(mealItem);
-    //updateDiv();
-
 })
 
 
@@ -37,7 +33,7 @@ const displayMealItem = mealItems => {
         });
         foodContainer.appendChild(foodItemName);
     });
-
+    document.getElementById('meal').value = '';
 
 }
 
@@ -56,6 +52,8 @@ const displayDetails = mealItemDetails => {
         itemDetail.className = 'meal-details';
         console.log(item.strMeal);
         const itemName = document.createElement('h1');
+        const ingredients = document.createElement('h4');
+        ingredients.innerText = 'Ingredients';
         itemName.innerText = item.strMeal;
         const ul = document.createElement('ul');
         const imgUrl = document.createElement('img');
@@ -71,6 +69,7 @@ const displayDetails = mealItemDetails => {
         `
         ul.innerHTML = li;
         itemDetail.appendChild(itemName);
+        itemDetail.appendChild(ingredients);
         itemDetail.appendChild(ul);
         itemDetails.appendChild(itemDetail);
 

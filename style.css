@@ -17,9 +17,17 @@
 }
 
 .meal-details img{
-    width: 200px;
+    width: 400px;
 }
 
 #item-details {
     margin-top: 20px;
+}
+
+.meal-details{
+    border: 1px solid chartreuse;
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    
 }
