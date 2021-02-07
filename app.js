@@ -1,20 +1,17 @@
+
+// Handle button click
 const searchBtn = document.getElementById('search');
 searchBtn.addEventListener('click', function () {
     const mealItem = document.getElementById('meal').value;
     loadFoodData(mealItem);
 })
 
-
+// Meal data fetch using food name
 const loadFoodData = foodName => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
-    // fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => displayMealItem(data.meals))
-    //     .catch(error => console.log(error))
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log('response',data);
             if(data.meals != null){
                 displayMealItem(data.meals);
             }else{
@@ -24,9 +21,9 @@ const loadFoodData = foodName => {
         .catch(error => alert('Please check your Internet'))
 }
 
-const displayMealItem = mealItems => {
+// Display meal item name and image
 
-    //console.log(mealItems);
+const displayMealItem = mealItems => {
     const foodContainer = document.getElementById('food-container');
     dataClear('food-container');
     dataClear('item-details');
@@ -40,7 +37,7 @@ const displayMealItem = mealItems => {
         `
         foodItemName.innerHTML = foodInfo;
         foodItemName.addEventListener('click', function () {
-            mealDetails(item.idMeal);
+            loadMealDetailsData(item.idMeal);
         });
         foodContainer.appendChild(foodItemName);
     });
@@ -48,7 +45,9 @@ const displayMealItem = mealItems => {
 
 }
 
-const mealDetails = id => {
+// fetch meal details data using meal item id
+
+const loadMealDetailsData = id => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
     fetch(url)
         .then(res => res.json())
@@ -62,6 +61,8 @@ const mealDetails = id => {
         })
         .catch(error => alert('Please check your Internet'))
 }
+
+// Display meal details data after clicking on meal item
 
 const displayDetails = mealItemDetails => {
     const itemDetails = document.getElementById('item-details');
@@ -78,6 +79,8 @@ const displayDetails = mealItemDetails => {
         const imgUrl = document.createElement('img');
         imgUrl.src = item.strMealThumb;
         itemDetail.appendChild(imgUrl);
+
+        // create a array using meal object data for ingredients
 
         const ingredientsItems = [item.strIngredient1,item.strIngredient2,item.strIngredient3,item.strIngredient4,
             item.strIngredient5,item.strIngredient6,item.strIngredient7,item.strIngredient8,item.strIngredient9,item.strIngredient10,
@@ -98,6 +101,8 @@ const displayDetails = mealItemDetails => {
     });
 
 }
+
+// Refresh meal item data after searching food name
 
 const dataClear = id => {
     const itemDetails = document.getElementById(id);
