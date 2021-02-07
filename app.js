@@ -30,7 +30,6 @@ const displayMealItem = mealItems => {
     mealItems.forEach(item => {
         const foodItemName = document.createElement('div');
         foodItemName.className = 'meal-item';
-        itemPosition = item.idMeal;
         const foodInfo = `
         <img src ="${item.strMealThumb}">
         <h3>${item.strMeal}</h3>
