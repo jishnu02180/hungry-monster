@@ -7,10 +7,21 @@ searchBtn.addEventListener('click', function () {
 
 const loadFoodData = foodName => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
+    // fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => displayMealItem(data.meals))
+    //     .catch(error => console.log(error))
     fetch(url)
         .then(res => res.json())
-        .then(data => displayMealItem(data.meals))
-        .catch(error => console.log(error))
+        .then(data => {
+            console.log('response',data);
+            if(data.meals != null){
+                displayMealItem(data.meals);
+            }else{
+                alert('No data is available');
+            }
+        })
+        .catch(error => alert('Please check your Internet'))
 }
 
 const displayMealItem = mealItems => {
@@ -41,7 +52,15 @@ const mealDetails = id => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayDetails(data.meals))
+        .then(data => {
+            console.log('response',data);
+            if(data.meals != null){
+                displayDetails(data.meals);
+            }else{
+                alert('No data is available');
+            }
+        })
+        .catch(error => alert('Please check your Internet'))
 }
 
 const displayDetails = mealItemDetails => {
