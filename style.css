@@ -1,33 +1,42 @@
 #food-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
 }
 
 .meal-item{
-    border: 1px solid goldenrod;
+    border: 1px solid rgb(247, 244, 239);
     border-radius: 20px;
-    padding: 20px;
     text-align: center;
-    width: 300px;
+    width: 201px;
 }
 
 .meal-item img {
     width: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
 }
 
 .meal-details img{
     width: 400px;
+    height: 200px;
+    border-radius: 10px;
 }
 
-#item-details {
+/* #item-details {
     margin-top: 20px;
-}
+} */
 
 .meal-details{
-    border: 1px solid chartreuse;
     margin: 20px;
     padding: 20px;
-    width: 500px;
+    width: 405px;
+    margin: 0 auto;
+    margin-bottom: 20px;
     
+}
+
+.meal-details h1{
+    margin-top: 10px;
 }
